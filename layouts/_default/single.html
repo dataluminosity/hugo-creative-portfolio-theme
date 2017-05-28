@@ -5,7 +5,61 @@
     <div class="col-lg-8">
       <div class="content-column-content">
          <h1>{{ .Title }}</h1>
+                              <p>
+                                {{ with .Params.authors }}
+                                {{ delimit . ", " }}
+                                {{ end }}
+                              </p>
+         <p>{{ .Params.abstract_short }}</p>
          {{ .Content }}
+         <p>{{ .Params.abstract }}</p>
+
+{{ with $.Params.url_pdf }}
+<a class="btn btn-primary btn-outline" href="{{ . | absURL }}">
+  PDF
+</a>
+{{ end }}
+{{ with $.Params.url_arxiv }}
+<a class="btn btn-primary btn-outline" href="{{ . | absURL }}">
+  arXiv 
+</a>
+{{ end }}
+{{ with $.Params.url_ppt }}
+<a class="btn btn-primary btn-outline" href="{{ . | absURL }}">
+  PPT
+</a>
+{{ end }}
+{{ with $.Params.url_code }}
+<a class="btn btn-primary btn-outline" href="{{ . | absURL }}">
+  Code
+</a>
+{{ end }}
+{{ with $.Params.url_video }}
+<a class="btn btn-primary btn-outline" href="{{ . | absURL }}">
+  Video
+</a>
+{{ end }}
+{{ with $.Params.url_ios }}
+<a class="btn btn-primary btn-outline" href="{{ . | absURL }}">
+ iOS  
+</a>
+{{ end }}
+{{ with $.Params.url_android }}
+<a class="btn btn-primary btn-outline" href="{{ . | absURL }}">
+  Android
+</a>
+{{ end }}
+{{ with $.Params.url_site }}
+<a class="btn btn-primary btn-outline" href="{{ . | absURL }}">
+  Site
+</a>
+{{ end }}
+{{ range $.Params.url_media }}
+<a class="btn btn-primary btn-outline" href="{{ . | absURL }}">
+  Media
+</a>
+{{ end }}
+         
          {{ template "_internal/disqus.html" . }}
       </div>
     </div>

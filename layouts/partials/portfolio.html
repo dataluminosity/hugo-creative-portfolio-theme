@@ -22,6 +22,12 @@
                           <h4><a href="{{ .Permalink }}">{{ .Title }}</a></h4>
                           <div class="box-masonry-desription">
                               <p>{{ .Summary }}</p>
+                              <p>{{ .Params.abstract_short }}</p>   
+                              <p>
+                                {{ with .Params.authors }}
+                                {{ delimit . ", " }}
+                                {{ end }}
+                              </p>
                           </div>
                       </div>
                   </div>
@@ -30,3 +36,4 @@
         </div>
     </div>
 </div>
+
